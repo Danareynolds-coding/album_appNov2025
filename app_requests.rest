@@ -1,0 +1,7 @@
+//step
+# GET http://localhost:3000/api/album
+
+# GET single album
+
+GET http://localhost:3000/api/album/get_album/3
+

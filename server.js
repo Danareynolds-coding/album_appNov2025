@@ -26,3 +26,4 @@ server.use(express.urlencoded({extended:true}))
 server.use('/', router)
 //step1
 server.listen(PORT, ()=> console.log(`Server is at port ${PORT}!!!!`))
+module.exports = server
