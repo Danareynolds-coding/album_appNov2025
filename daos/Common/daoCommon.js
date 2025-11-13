@@ -13,15 +13,7 @@ const daoCommon = {
       }
     )
   },
-  findById:(res, table, id)=> {
-    connect.query(
-      `SELECT * FROM ${table} WHERE ${table}_id = ${id};`,
-      (error, rows)=> {
-        queryAction(res, error, rows, table)
-      }
-    ) 
-  },
-  //step
+
   sort:(res, table, sorter)=>{
     connect.query(
       `SELECT * FROM ${table} ORDER BY ${sorter};`,
@@ -30,6 +22,14 @@ const daoCommon = {
         }
       ) 
     },
+    findById:(res, table, id)=> {
+    connect.query(
+      `SELECT * FROM ${table} WHERE ${table}_id = ${id};`,
+      (error, rows)=> {
+        queryAction(res, error, rows, table)
+      }
+    ) 
+  },
   create: (req, res, table)=> {
    if (Object.keys(req.body).length === 0){
     res.json({

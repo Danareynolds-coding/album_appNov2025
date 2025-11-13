@@ -1,5 +1,6 @@
 const con = require('../../config/dbconfig')
 const {queryAction} = require('../../helpers/queryAction')
+const { findAll } = require('../Common/daoCommon')
 
 const albumDao ={
   table:'album',
@@ -31,6 +32,7 @@ const albumDao ={
       }
     )
   },
+  
   findAlbumsByArtistId:(res, table, id)=>{
       const sql =`SELECT title, album_id, yr_released FROM ${table} WHERE artist_id = ${id};`
 
@@ -40,7 +42,18 @@ const albumDao ={
           queryAction(res, error, rows, table)
         }
     )
-  }
+  },
+  createAlbum (req, res, table)
+    const fName = req.body.fName
+    const lName = req.body.lName
+    const band = req.body.band
+    const label = req.body.label
+
+    const data = {
+      artist_id: null,
+      band_id: null,
+      label_id: null
+    }
 }
 
 module.exports = albumDao
